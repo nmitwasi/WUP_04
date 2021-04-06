@@ -67,3 +67,5 @@ The only significant difference is in wordsum between the High school graduate a
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+We used anovs to work out the P value and we got it it turns out that the P value is 0.000236 which is less than 0.05 This means that at least one of the differences is shown to be considerably different in the mean, but we don't know which one.  
+We used the TUKEY-HSD test to see where the deviations are. It reveals that the only major difference between high school graduates and secondary school graduates is in vocabulary. We've got a confident 95% chart rating and it's seen.  
