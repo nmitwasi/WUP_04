@@ -1,7 +1,7 @@
 ---
 title: "WUP_04"
-author: "Put your name here!"
-date: "fall 2020"
+author: "Nadya Mitwasi"
+date: "Spring 2021"
 output:
   html_document:
     df_print: paged
@@ -26,8 +26,12 @@ $H_a$ There is a significant difference in average score on the WORDSUM test bet
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-# Results
+We will load in the data and there is multipul levels degrees. there fore we will use anova.  
 
+# Results
+```{r}
+worlddata=read.csv(file="GSScsv.csv",header=T)
+```
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ## Descriptive Results
@@ -41,6 +45,20 @@ $H_a$ There is a significant difference in average score on the WORDSUM test bet
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ## Inferential Results
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=worlddata)
+summary.aov(model1)
+```
+
+The P value is 0.000236 which is less than 0.05 that means we have evidence that there a significant difference in the means at least one of the combinations but we dont know which one.  
+we used TUKEY-HSD test to see where the differences are.  
+
+```{r}
+#we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
+par(mar = c(3, 12.7, 2, 2))
+plot(TukeyHSD(model1),las=2)
+```
+The only significant difference is in wordsum between the High school graduate and the LT high school graduate.  
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
@@ -48,3 +66,4 @@ $H_a$ There is a significant difference in average score on the WORDSUM test bet
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
